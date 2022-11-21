@@ -5,7 +5,7 @@ import { CreateProductDTO } from './dto/product.dto';
 export class ProductController {
   @Post('/create')
   createProduct(@Res() res, @Body() createProductDTO: CreateProductDTO) {
-    console.log(createProductDTO);
+    // console.log(createProductDTO);
     return res.status(HttpStatus.OK).json({
       msg: 'Product created successfully',
     });
