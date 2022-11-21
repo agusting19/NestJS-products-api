@@ -25,7 +25,17 @@ export class ProductService {
     return await product.save();
   }
 
-  // updateProduct() {}
+  async updateProduct(
+    productID: string,
+    createProductDTO: CreateProductDTO,
+  ): Promise<Product> {
+    const updatedProduct = await this.productModel.findByIdAndUpdate(
+      productID,
+      createProductDTO,
+      { new: true },
+    );
+    return updatedProduct;
+  }
 
   async deleteProduct(productID: string): Promise<Product> {
     const deletedProduct = await this.productModel.findByIdAndDelete(productID);
