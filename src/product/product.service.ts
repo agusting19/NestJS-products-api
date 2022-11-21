@@ -14,7 +14,10 @@ export class ProductService {
     return products;
   }
 
-  // getProduct() {}
+  async getProduct(productID: string): Promise<Product> {
+    const product = await this.productModel.findById(productID);
+    return product;
+  }
 
   // createProduct() {}
 
